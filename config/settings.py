@@ -24,6 +24,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.inicio',
+    'apps.usuarios',
+    'apps.eixos',
+    'apps.pagamentos',
+    'apps.bolsistas',
 ]
 
 MIDDLEWARE = [
@@ -96,3 +100,5 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# faz o django usar meu modelo de usuários personalizados para autenticacao
+AUTH_USER_MODEL = 'usuarios.Usuarios'
