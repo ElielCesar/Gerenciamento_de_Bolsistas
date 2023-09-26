@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %} Editar eixo {% endblock %}
+
+
+<!--Conteudo vai aqui dentro-->
+{% block conteudo %}
+
+<!-- confirmar_exclusao.html -->
+<div class="rounded shadow bg-light text-center mx-5 my-5" style="width: 50vw;">
+    <h1>Confirmar Exclusão</h1>
+    <p>Tem certeza de que deseja excluir o eixo "{{ eixo.nome_eixo }}" coordenado por "{{eixo.coordenador_eixo}}"?</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Confirmar Exclusão</button>
+        <button class="btn btn-primary text-dark my-2 w-25 text-white">Cancelar<a href="{% url 'editar_eixo' %}"></a></button>
+    </form>
+    
+</div>
+
+
+{% endblock %}

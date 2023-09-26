@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Update Eixo {% endblock %}
+
+{% block conteudo %}
+    <section class="mx-5 my-5 bg-light rounded shadow" style="width: 70vw; height: auto;">
+
+        <form method="post" class="form" autocomplete="off">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-dark my-3 w-100" type="submit">Atualizar Eixo</button>
+        </form>
+    </section>
+
+{% endblock %}
+
+        

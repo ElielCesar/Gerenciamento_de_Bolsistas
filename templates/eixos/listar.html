@@ -6,25 +6,27 @@
 <!--Conteudo vai aqui dentro-->
 {% block conteudo %}
 
+  <div class="rounded shadow mx-5">
+    <table class="table  my-5 table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Eixo</th>
+          <th scope="col">Coordenador</th>
+          <th scope="col">Cidade</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for item in eixos %}
+        <tr>
+          <td>{{item.nome_eixo}}</td>
+          <td>{{item.coordenador_eixo}}</td>
+          <td>{{item.cidade}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
     
-    <table class="table mx-5 my-5 table-striped">
-        <thead>
-          <tr>
-            <th scope="col">Eixo</th>
-            <th scope="col">Coordenador</th>
-            <th scope="col">Cidade</th>
-          </tr>
-        </thead>
-        <tbody>
-        {% for item in eixos %}
-          <tr>
-            <td>{{item.nome_eixo}}</td>
-            <td>{{item.coordenador_eixo}}</td>
-            <td>{{item.cidade}}</td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
 {% endblock %}
 
 
