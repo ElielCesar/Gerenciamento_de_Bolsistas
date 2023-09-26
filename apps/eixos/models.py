@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 class Eixos(models.Model):
     cidades_choices = [
-        ('Ariqumes', 'Ariquemes'),
+        ('Ariquemes', 'Ariquemes'),
         ('Porto Velho', 'Porto Velho'),
         ('Alto Alegre', 'Alto Alegre'),
         ('Buritis', 'Buritis'),

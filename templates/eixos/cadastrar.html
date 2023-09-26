@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Cadastrar Eixo {% endblock %}
+
+{% block conteudo %}
+    <section class="mx-5 my-5 bg-light rounded shadow" style="width: 70vw; height: auto;">
+        <!--Mensagem de sucesso-->
+        <div>
+            {% for mensagem in messages%} 
+                <div class="alert alert-success" role="alert"> {{ mensagem }} </div>
+            {% endfor %}
+        </div>
+
+        <form action="{% url 'cadastrar_eixo' %}" method="post" class="form" autocomplete="off">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <button class="btn btn-primary my-3 w-100" type="submit">Cadastrar Eixo</button>
+        </form>
+
+    </section>
+
+{% endblock %}
+
+        

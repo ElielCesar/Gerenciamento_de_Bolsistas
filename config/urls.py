@@ -8,6 +8,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('sistema/', include('apps.inicio.urls')),
     path('auth/login/', include('apps.usuarios.urls')),
+    path('eixos/', include('apps.eixos.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
