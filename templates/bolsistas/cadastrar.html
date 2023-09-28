@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Cadastrar Bolsista {% endblock %}
+
+
+{% block conteudo %}
+    <div class="bg-light my-5 mx-5 rounded shadow" style="width: 70vw; height: auto;">
+
+        <form action="{% url 'cadastrar_bolsistas' %}" method="post" class="form" autocomplete="off">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <button type="submit" class="btn btn-primary my-3 w-100">Cadastrar Bolsista</button>
+        </form>
+        
+    </div>
+{% endblock %}
+
+
+

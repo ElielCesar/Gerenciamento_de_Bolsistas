@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Listar Bolsistas{% endblock %}
+
+{% block conteudo %}
+    <div class="shadow rounded mx-5 my-5">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">CPF</th>
+                <th scope="col">Tipo Bolsa</th>
+                <th scope="col">Carga Horaria</th>
+                <th scope="col">Cidade de Atuação</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for bolsista in bolsistas %}
+              <tr>
+                <td>{{bolsista.nome}}</td>
+                <td>{{bolsista.cpf}}</td>
+                <td>{{bolsista.tipo_bolsa}}</td>
+                <td>{{bolsista.carga_horaria}}&nbsp;Horas Semanais</td>
+                <td>{{bolsista.cidade_atuacao}}</td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+    </div>
+{% endblock %}

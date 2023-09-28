@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Editar Bolsistas{% endblock %}
+
+{% block conteudo %}
+    <div class="shadow rounded mx-5 my-5">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Tipo Bolsa</th>
+                <th scope="col">Carga Horaria</th>
+                <th scope="col">Cidade de Atuação</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Deletar</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for bolsista in bolsistas %}
+              <tr>
+                <td>{{bolsista.nome}}</td>
+                <td>{{bolsista.tipo_bolsa}}</td>
+                <td>{{bolsista.carga_horaria}}&nbsp;Horas Semanais</td>
+                <td>{{bolsista.cidade_atuacao}}</td>
+                <td><a href="{% url 'detalhes_bolsista' bolsista.id %}"><i class="bi bi-pencil-fill"></i></a></td>
+                <td><a href="{% url 'deletar_bolsistas' bolsista.id %}"><i class="bi bi-trash-fill"></i></a></td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+    </div>
+{% endblock %}

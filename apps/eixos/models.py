@@ -14,3 +14,6 @@ class Eixos(models.Model):
     cidade = models.CharField(max_length=200, choices=cidades_choices)
     coordenador_eixo = models.CharField(max_length=200)
     objetivo_eixo = models.TextField()
+
+    def __str__(self):
+        return self.nome_eixo
