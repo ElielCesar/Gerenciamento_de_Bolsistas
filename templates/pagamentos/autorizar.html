@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Solicitacões{% endblock %}
+
+{% block conteudo %}
+    <div class="shadow rounded mx-3 my-5">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Bolsista</th>
+                <th scope="col">Mes</th>
+                <th scope="col">Ano</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Relatório</th>
+                <th scope="col">Autorizar</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for sol in solicitacoes %}
+              <tr>
+                <td>{{sol.bolsista.nome}}</td>
+                <td>{{sol.mes}}</td>
+                <td>{{sol.ano}}</td>
+                <td>{{sol.valor_bolsa}}</td>
+                <td><a href="{{ sol.relatorio.url }}" download>Relatório</a></td>
+                <td><a href="{% url 'detalhes_relatorio_pagamentos' sol.id %}"><strong>Pagar</strong></a></td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+    </div>
+{% endblock %}

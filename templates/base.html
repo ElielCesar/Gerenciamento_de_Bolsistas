@@ -87,14 +87,18 @@
                         </a>
                         <ul id="pagamentos" class="sidebar-dropdown list-unstyled collapse"data-bs-parent="#sidebar">
                             <li class="sidebar-item">
-                                <a href="#" class="sidebar-link">Autorizar pagamentos</a>
+                                <a href="{% url 'autorizar_pagamentos' %}" class="sidebar-link">Autorizar pagamentos</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="{% url 'cadastrar_relatorio'%}" class="sidebar-link">Solicitar pagamentos</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="{% url 'listar_solicitacoes'%}" class="sidebar-link">Solicitações feitas</a>
                             </li>
                             <li class="sidebar-item">
                                 <a href="#" class="sidebar-link">Relatórios</a>
                             </li>
-                            <li class="sidebar-item">
-                                <a href="#" class="sidebar-link">Solicitar pagamentos</a>
-                            </li>
+                            
                         </ul>
                         
                     </li>

@@ -9,7 +9,9 @@ urlpatterns = [
     path('sistema/', include('apps.inicio.urls')),
     path('auth/login/', include('apps.usuarios.urls')),
     path('eixos/', include('apps.eixos.urls')),
-    path('bolsistas/', include('apps.bolsistas.urls'))
+    path('bolsistas/', include('apps.bolsistas.urls')),
+    path('pagamentos/', include('apps.pagamentos.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

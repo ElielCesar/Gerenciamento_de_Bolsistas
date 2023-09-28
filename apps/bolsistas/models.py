@@ -29,3 +29,6 @@ class Bolsista(models.Model):
     cidade_atuacao = models.CharField(max_length=50, choices=cidades_choices)
     carga_horaria = models.CharField(max_length=50, choices=carga_horaria_choices)
     tipo_bolsa = models.CharField(max_length=50, choices=tipo_bolsa_choices)
+
+    def __str__(self):
+        return self.nome
