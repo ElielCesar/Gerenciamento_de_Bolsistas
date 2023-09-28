@@ -12,6 +12,7 @@
                 <th scope="col">Ano</th>
                 <th scope="col">Valor</th>
                 <th scope="col">Relatório</th>
+                <th scope="col">Comp.Pag</th>
                 <th scope="col">Situacão</th>
               </tr>
             </thead>
@@ -23,8 +24,20 @@
                 <td>{{sol.ano}}</td>
                 <td>{{sol.valor_bolsa}}</td>
                 <td><a href="{{ sol.relatorio.url }}" download>Relatório</a></td>
-                {%%}
-                <td><span class="badge bg-success">{{sol.situacao}}</span></td>
+                <td>
+                  {% if sol.comprovante_pagamento %}
+                    <a href="{{ sol.comprovante_pagamento.url }}" download>Comprovante</a>
+                  {% else %}
+                    Sem comprovante
+                  {% endif %}
+                </td>
+                {% if sol.situacao == "pago"%}
+                  <td><span class="badge bg-success">{{sol.situacao}}</span></td>
+                {% elif sol.situacao == "aguardando"%}
+                  <td><span class="badge bg-warning">{{sol.situacao}}</span></td>
+                {% else %}
+                  <td><span class="badge bg-danger">{{sol.situacao}}</span></td>
+                {% endif %}
               </tr>
             {% endfor %}
             </tbody>

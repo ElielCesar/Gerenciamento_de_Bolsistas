@@ -58,7 +58,7 @@ class Relatorio(models.Model):
         verbose_name='Comprovante de Pag. - Reservado para o setor Financeiro',
         validators=[FileExtensionValidator(allowed_extensions=['pdf'])],
         blank=True,
-        null=True
+        null=True,
     )
     
     def __str__(self):

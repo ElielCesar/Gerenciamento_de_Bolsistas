@@ -8,7 +8,7 @@ def cadastrar_relatorio(request):
         form = Cadastrar_Relatorio(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('cadastrar_relatorio')
+            return redirect('listar_solicitacoes')
 
     else:
         form = Cadastrar_Relatorio()
@@ -18,6 +18,7 @@ def cadastrar_relatorio(request):
 def listar_solicitacoes(request):
     if request.method == 'GET':
         solicitacoes = Relatorio.objects.all().select_related('bolsista')
+        print(solicitacoes)
         return render(request, 'pagamentos/listar.html', {'solicitacoes':solicitacoes})
 
 # Sistema de CRUD parcial - fim
