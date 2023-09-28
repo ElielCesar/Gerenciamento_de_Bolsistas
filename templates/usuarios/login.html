@@ -38,21 +38,18 @@
         <!--Componente principal-->
         <main class="main">
             <!--TO DO: Adicionar responsividade ao formulario-->
-            <div class="card mx-auto my-auto shadow" style="width: 25rem; height: 25rem;">
+            <div class="card mx-auto my-auto shadow" style="width: 25rem; height: 29rem;">
                 <img src="{% static 'img/login_page/profile.png'%}" class="card-img-top"
                 style="width: 100px; height: auto; align-self: center;" >
                 <div class="card-body">
                   <h5 class="card-title text-center">Projeto Cidades Inteligentes</h5>
                   <form action="#" method="post">
-
-                    <label for="usuario">Usuário</label>
-                    <input id="usuario" class="form-control mb-2" type="text" required>
-
-                    <label for="Senha">Usuário</label>
-                    <input id="senha" class="form-control mb-4" type="password" required>
-
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    
+                    <button type="submit" class="btn btn-outline-dark w-100">Login</button>
                   </form>
-                  <button type="submit" class="btn btn-outline-dark w-100">Login</button>
+                  
                 </div>
               </div>
                                    

@@ -36,7 +36,6 @@
                         data-bs-target="#eixos" aria-expanded="false" aria-controls="eixos">
                             <i class="bi bi-folder2-open pe-2"></i>
                                 Eixos
-                            </i>
                         </a>
                         <ul id="eixos" class="sidebar-dropdown list-unstyled collapse"data-bs-parent="#sidebar">
                             <li class="sidebar-item">
@@ -60,7 +59,6 @@
                         aria-expanded="false" aria-controls="bolsistas">
                             <i class="bi bi-person-plus pe-2"></i>
                                 Bolsistas
-                            </i>
                         </a>
 
                         <ul id="bolsistas" class="sidebar-dropdown list-unstyled collapse"data-bs-parent="#sidebar">
@@ -83,9 +81,8 @@
                         aria-expanded="false" aria-controls="pagamentos">
                             <i class="bi bi-cash-coin pe-2"></i>
                                 Pagamentos
-                            </i>
                         </a>
-                        <ul id="pagamentos" class="sidebar-dropdown list-unstyled collapse"data-bs-parent="#sidebar">
+                        <ul id="pagamentos" class="sidebar-dropdown list-unstyled "data-bs-parent="#sidebar">
                             <li class="sidebar-item">
                                 <a href="{% url 'autorizar_pagamentos' %}" class="sidebar-link">Autorizar pagamentos</a>
                             </li>
@@ -103,6 +100,13 @@
                         
                     </li>
                     <!--Fim do item de menu-->
+
+                    <li class="sidebar-item">
+                        <a href="{% url 'logout' %}" class="sidebar-link" >
+                            <i class="bi bi-door-open"></i>
+                                Sair
+                        </a>
+                    </li>
 
                 </ul>
             </div>

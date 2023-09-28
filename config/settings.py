@@ -105,3 +105,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # faz o django usar meu modelo de usuários personalizados para autenticacao
 AUTH_USER_MODEL = 'usuarios.Usuarios'
+LOGIN_REDIRECT_URL = '/sistema/'
+LOGOUT_REDIRECT_URL = '/login/'

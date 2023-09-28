@@ -7,8 +7,6 @@ class Usuarios(AbstractUser):
     bolsas_choices = [
         ('Coordenador do Projeto', 'Coordenador do Projeto'),
         ('Coordenador do Eixo','Coordenador do Eixo'),
-        ('Bolsista Superior','Bolsista Superior'),
-        ('Bolsista Médio','Bolsista Medio'),
     ]
 
     cpf = models.CharField(max_length=11)
