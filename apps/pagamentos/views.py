@@ -1,8 +1,11 @@
+from django.contrib.auth.decorators import login_required, user_passes_test
+from apps.permissions import is_bolsista, is_coordenador, is_financeiro
 from django.shortcuts import render, redirect, get_object_or_404
 from apps.pagamentos.models import Relatorio
 from apps.pagamentos.forms import Cadastrar_Relatorio
 
 # Sistema de CRUD parcial - inicio 
+@login_required
 def cadastrar_relatorio(request):
     if request.method == 'POST':
         form = Cadastrar_Relatorio(request.POST, request.FILES)
@@ -15,6 +18,8 @@ def cadastrar_relatorio(request):
     
     return render(request, 'pagamentos/cadastrar.html', {'form': form})
 
+
+@login_required
 def listar_solicitacoes(request):
     if request.method == 'GET':
         solicitacoes = Relatorio.objects.all().select_related('bolsista')
@@ -24,13 +29,16 @@ def listar_solicitacoes(request):
 # Sistema de CRUD parcial - fim
 
 # view que autoriza os pagamentos
+@login_required
+@user_passes_test(is_financeiro)
 def autorizar_pagamentos(request):
     
     if request.method == 'GET':
         solicitacoes = Relatorio.objects.all().select_related('bolsista')
         return render(request, 'pagamentos/autorizar.html', {'solicitacoes':solicitacoes})
 
-
+@login_required
+@user_passes_test(is_financeiro)
 def detalhes_relatorio_pagamentos(request, id_solicitacao):
 
     form = get_object_or_404(Relatorio, pk=id_solicitacao)

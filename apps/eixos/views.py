@@ -1,13 +1,14 @@
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
+from apps.permissions import is_bolsista, is_coordenador
 from django.shortcuts import render, redirect
 from django.shortcuts import get_object_or_404
 from apps.eixos.forms import Cadastrar_Eixo
 from apps.eixos.models import Eixos
-from django.contrib import messages
-
 
 # Create your views here.
+
 @login_required 
+@user_passes_test(is_coordenador)
 def cadastrar_eixo(request):
     if request.method  == 'POST':
         form = Cadastrar_Eixo(request.POST)
@@ -28,12 +29,15 @@ def listar_eixos(request):
 
 
 @login_required
+@user_passes_test(is_coordenador)
 def editar_eixo(request):
     if request.method == 'GET':
         eixos = Eixos.objects.all().values()
         return render(request, 'eixos/editar.html', {'eixos':eixos})
 
+
 @login_required
+@user_passes_test(is_coordenador)
 def detalhes_eixo(request, id_eixo):
     eixo = get_object_or_404(Eixos, pk=id_eixo)
     
