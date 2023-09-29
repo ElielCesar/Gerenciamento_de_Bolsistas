@@ -98,8 +98,8 @@ STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / "staticfiles" # aqui é onde ficara os arquivos coletados
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
-    os.path.join(BASE_DIR, "static/img/login_page"),
-    os.path.join(BASE_DIR, "static/img/menu_lateral"),
+    # os.path.join(BASE_DIR, "static/img/login_page"),
+    # os.path.join(BASE_DIR, "static/img/menu_lateral"),
 ]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
