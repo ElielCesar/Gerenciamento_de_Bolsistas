@@ -1,6 +1,5 @@
 from django.contrib.auth.forms import AuthenticationForm
 from django import forms
-from django.forms.widgets import TextInput, PasswordInput
 
 class CustomAuthenticationForm(AuthenticationForm):
     username = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
