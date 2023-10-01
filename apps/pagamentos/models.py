@@ -37,7 +37,7 @@ class Relatorio(models.Model):
         ('aguardando', 'aguardando'),
     ]
 
-    bolsista = models.ForeignKey(Bolsista, on_delete=models.DO_NOTHING)
+    bolsista = models.ForeignKey(Bolsista, on_delete=models.CASCADE)
     mes = models.CharField(max_length=30, choices=mes_choice)
     ano = models.PositiveIntegerField(choices=ano_choice)
     valor_bolsa = models.DecimalField(max_digits=8, decimal_places=2)
@@ -51,7 +51,7 @@ class Relatorio(models.Model):
         max_length=15,
         choices=situacao_choices,
         default='aguardando',
-        verbose_name="Situacão")
+        verbose_name="Situacão - Reservado para o setor Financeiro")
     
     comprovante_pagamento = models.FileField(
         upload_to='comprovantes_pagamento/',

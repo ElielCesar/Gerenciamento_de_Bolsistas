@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Solicitacões{% endblock %}
+{% block title %}Autorizar{% endblock %}
 
 {% block conteudo %}
     <div class="shadow rounded mx-3 my-5">
@@ -12,6 +12,7 @@
                 <th scope="col">Ano</th>
                 <th scope="col">Valor</th>
                 <th scope="col">Relatório</th>
+                <th scope="col">Situacão</th>
                 <th scope="col">Autorizar</th>
               </tr>
             </thead>
@@ -23,6 +24,7 @@
                 <td>{{sol.ano}}</td>
                 <td>{{sol.valor_bolsa}}</td>
                 <td><a href="{{ sol.relatorio.url }}" download>Relatório</a></td>
+                <td>{{sol.situacao}}</td>
                 <td><a href="{% url 'detalhes_relatorio_pagamentos' sol.id %}"><strong>Pagar</strong></a></td>
               </tr>
             {% endfor %}

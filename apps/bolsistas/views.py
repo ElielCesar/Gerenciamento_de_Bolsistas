@@ -33,6 +33,8 @@ def listar_bolsistas(request):
           bolsistas = Bolsista.objects.all().values()
           return render(request, 'bolsistas/listar.html', {'bolsistas':bolsistas})
 
+
+
 @login_required
 @user_passes_test(is_coordenador)
 def deletar_bolsistas(request, id_bolsista):
@@ -44,6 +46,8 @@ def deletar_bolsistas(request, id_bolsista):
 
      else:
           return render(request, 'bolsistas/confirmar.html', {'bolsista':bolsista})
+
+
 
 @login_required
 @user_passes_test(is_coordenador)
