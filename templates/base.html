@@ -34,18 +34,16 @@
                     {% endif %}
 
                     <!--Menu Bolsistas-->
-                    {% if is_coordenador %}
+                    {% if is_coordenador or is_financeiro %}
 
                         {% include 'bolsistas/menu_bolsistas.html'%}
 
                     {% endif %}
                         
                     <!--Menu Pagamentos-->
-                    {% if is_coordenador or is_bolsista or is_financeiro %}
 
-                        {% include 'pagamentos/menu_pagamentos.html'%}
+                    {% include 'pagamentos/menu_pagamentos.html'%}
 
-                    {% endif %}
                     <!--Fim do item de menu-->
 
                     <li class="sidebar-item">
