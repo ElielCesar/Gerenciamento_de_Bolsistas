@@ -23,11 +23,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps.inicio',
-    'apps.usuarios',
+    'apps.bolsistas',
     'apps.eixos',
     'apps.pagamentos',
-    'apps.bolsistas',
+    'apps.inicio',
+    'apps.usuarios',
 ]
 
 MIDDLEWARE = [
@@ -55,6 +55,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'apps.usuarios.context_processors.menu_context',
             ],
         },
     },

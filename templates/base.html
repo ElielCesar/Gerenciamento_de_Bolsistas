@@ -17,7 +17,7 @@
             <div class="h-100">
                 <div class="sidebar-logo">
                     <a href="#">
-                        <img src="{%static 'img/menu_lateral/logo_cidades.png'%}" alt="" style="width: 200px; height: auto;">
+                        <img src="{%static 'img/menu_lateral/logo_cidades.png'%}" style="width: 200px; height: auto;">
                     </a>
                 </div>
             
@@ -26,79 +26,26 @@
                     <li class="sidebar-header">
                         <hr>
                     </li>
+                    <!--Menu Eixos-->
+                    {% if is_coordenador %}
+                    
+                        {% include 'eixos/menu_eixos.html' %}
+                    
+                    {% endif %}
 
-                    <!--Cada item de menu deve dentro dessa estrutura-->
+                    <!--Menu Bolsistas-->
+                    {% if is_coordenador %}
 
-                    <!--Item de menu-->
-                    <li class="sidebar-item">
-                        <!--Esse link é o controle de accordion-->
-                        <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#eixos" aria-expanded="false" aria-controls="eixos">
-                            <i class="bi bi-folder2-open pe-2"></i>
-                                Eixos
-                        </a>
-                        <ul id="eixos" class="sidebar-dropdown list-unstyled collapse"data-bs-parent="#sidebar">
-                            <li class="sidebar-item">
-                                <a href="{% url 'cadastrar_eixo'%}" class="sidebar-link">Cadastrar eixos</a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="{% url 'editar_eixo'%}" class="sidebar-link">Editar eixos</a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="{% url 'listar_eixos' %}" class="sidebar-link">Listar eixos</a>
-                            </li>
+                        {% include 'bolsistas/menu_bolsistas.html'%}
 
-                        </ul>
-                    </li>
-                    <!--Fim do item de menu-->
-
-                    <!--Item de menu-->
-                    <li class="sidebar-item">
-                        <!--Esse link é o controle de accordion-->
-                        <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#bolsistas"
-                        aria-expanded="false" aria-controls="bolsistas">
-                            <i class="bi bi-person-plus pe-2"></i>
-                                Bolsistas
-                        </a>
-
-                        <ul id="bolsistas" class="sidebar-dropdown list-unstyled collapse"data-bs-parent="#sidebar">
-                            <li class="sidebar-item">
-                                <a href="{% url 'cadastrar_bolsistas'%}" class="sidebar-link">Cadastrar bolsistas</a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="{% url 'editar_bolsistas' %}" class="sidebar-link">Editar bolsistas</a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="{% url 'listar_bolsistas' %}" class="sidebar-link">Listar bolsistas</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--Fim do item de menu-->
-
-                    <!--Item de menu-->
-                    <li class="sidebar-item">
-                        <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#pagamentos"
-                        aria-expanded="false" aria-controls="pagamentos">
-                            <i class="bi bi-cash-coin pe-2"></i>
-                                Pagamentos
-                        </a>
-                        <ul id="pagamentos" class="sidebar-dropdown list-unstyled collapse"data-bs-parent="#sidebar">
-                            <li class="sidebar-item">
-                                <a href="{% url 'autorizar_pagamentos' %}" class="sidebar-link">Autorizar pagamentos</a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="{% url 'cadastrar_relatorio'%}" class="sidebar-link">Solicitar pagamentos</a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="{% url 'listar_solicitacoes'%}" class="sidebar-link">Solicitações feitas</a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="#" class="sidebar-link">Relatórios</a>
-                            </li>
-                            
-                        </ul>
+                    {% endif %}
                         
-                    </li>
+                    <!--Menu Pagamentos-->
+                    {% if is_coordenador or is_bolsista or is_financeiro %}
+
+                        {% include 'pagamentos/menu_pagamentos.html'%}
+
+                    {% endif %}
                     <!--Fim do item de menu-->
 
                     <li class="sidebar-item">
@@ -133,9 +80,8 @@
     </div>
     <!--Menu lateral termina aqui -->
 
-    
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{% static 'js/menu_lateral/script.js'%}"></script>
+
 </body>
 </html>

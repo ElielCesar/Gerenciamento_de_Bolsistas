@@ -1,0 +1,23 @@
+<li class="sidebar-item">
+    <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#pagamentos"
+    aria-expanded="false" aria-controls="pagamentos">
+        <i class="bi bi-cash-coin pe-2"></i> Pagamentos
+    </a>
+    
+    <ul class="sidebar-dropdown list-unstyled ms-4" data-bs-parent="#sidebar">
+    
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="{% url 'autorizar_pagamentos' %}">Autorizar Pagamentos</a>
+        </li>
+    
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="{% url 'cadastrar_relatorio' %}">Solicitar Pagamentos</a>
+        </li>
+    
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="{% url 'listar_solicitacoes' %}">Listar Pagamentos</a>
+        </li>
+        <!-- Adicione mais itens de menu para o aplicativo 'eixos' conforme necessário -->
+    </ul>
+</li>
+

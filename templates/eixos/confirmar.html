@@ -7,17 +7,16 @@
 {% block conteudo %}
 
 <!-- confirmar_exclusao.html -->
-<div class="rounded shadow bg-light text-center mx-5 my-5" style="width: 50vw;">
-    <h1>Confirmar Exclusão</h1>
+<div class="rounded shadow bg-light text-center my-5" style="width: 50vw; margin: auto;">
+    <h2>Confirmar Exclusão</h2>
     <p>Tem certeza de que deseja excluir o eixo "{{ eixo.nome_eixo }}" coordenado por "{{eixo.coordenador_eixo}}"?</p>
 
     <form method="post">
         {% csrf_token %}
-        <button type="submit" class="btn btn-danger">Confirmar Exclusão</button>
+        <button type="submit" class="btn btn-danger w-25">Confirmar Exclusão</button>
+        <button class="btn btn-primary text-dark my-2 w-25 text-white" onclick="window.history.back()">Cancelar</button>
         
     </form>
-    <button class="btn btn-primary text-dark my-2 w-25 text-white" onclick="window.history.back()">Cancelar</button>
-    
 </div>
 
 

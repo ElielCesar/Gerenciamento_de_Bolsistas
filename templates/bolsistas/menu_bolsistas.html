@@ -1,0 +1,23 @@
+<li class="sidebar-item">
+    <!--Esse link é o controle de accordion-->
+    <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" data-bs-target="#bolsistas"
+    aria-expanded="false" aria-controls="bolsistas">
+        <i class="bi bi-person-plus pe-2"></i>Bolsistas
+    </a>
+
+    <ul class="sidebar-dropdown list-unstyled ms-4" data-bs-parent="#sidebar">
+        
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="{% url 'cadastrar_bolsistas' %}">Cadastrar Bolsista</a>
+        </li>
+
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="{% url 'editar_bolsistas' %}">Editar Bolsista</a>
+        </li>
+
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="{% url 'listar_bolsistas' %}">Listar Bolsistas</a>
+        </li>
+        <!-- Adicione mais itens de menu para o aplicativo 'bolsistas' conforme necessário -->
+    </ul>
+</li>

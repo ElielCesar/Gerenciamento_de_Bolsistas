@@ -1,0 +1,21 @@
+
+<li class="sidebar-item">
+    <a href="#" class="sidebar-link" data-bs-toggle="collapse" data-bs-target="#eixos" >
+        <i class="bi bi-folder2-open pe-2"></i>Eixos
+    </a>
+    <ul class="sidebar-dropdown list-unstyled ms-4" data-bs-parent="#sidebar">
+        
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="{% url 'cadastrar_eixo'%}">Cadastrar Eixos</a>
+        </li>
+
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="{% url 'editar_eixo' %}">Editar Eixos</a>
+        </li>
+
+        <li class="sidebar-item">
+            <a class="sidebar-link" href="{% url 'listar_eixos' %}">Listar Eixos</a>
+        </li>
+        <!-- Adicione mais itens de menu para o aplicativo 'eixos' conforme necessário -->
+    </ul>
+</li>
