@@ -64,3 +64,27 @@ class Test_Menu_Bolsista(LiveServerTestCase):
     def test_menu_sair(self):
         menu_sair = self.webdriver.find_element(By.XPATH, '//*[@id="sidebar"]/div/ul/li[3]/a')
         assert menu_sair.is_displayed()
+
+    def test_autorizar_pagamentos(self):
+        item_menu = self.webdriver.find_element(By.XPATH, '//*[@id="sidebar"]/div/ul/li[2]/ul/li[1]/a')
+
+        item_menu.click()
+        texto_da_pagina = self.webdriver.find_element(By.TAG_NAME, 'h1').text
+
+        assert 'Not Found' in texto_da_pagina
+
+    def test_solicitar_pagamentos(self):
+        item_menu = self.webdriver.find_element(By.XPATH, '//*[@id="sidebar"]/div/ul/li[2]/ul/li[2]/a')
+
+        item_menu.click()
+        formulario = self.webdriver.find_element(By.CLASS_NAME, 'form')
+
+        assert formulario.is_displayed()
+
+    def test_listar_pagamentos(self):
+        item_menu = self.webdriver.find_element(By.XPATH, '//*[@id="sidebar"]/div/ul/li[2]/ul/li[3]/a')
+
+        item_menu.click()
+        formulario = self.webdriver.find_element(By.CLASS_NAME, 'table')
+
+        assert formulario.is_displayed()
