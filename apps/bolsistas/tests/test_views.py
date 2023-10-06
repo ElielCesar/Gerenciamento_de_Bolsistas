@@ -1,55 +1,51 @@
-import pytest
 from django.urls import reverse
-from django.contrib.auth.models import User
-from django.test import Client
+from django.contrib.auth.models import Group
+from django.test import TestCase
+from apps.usuarios.models import Usuarios
 
-# melhor forma de executar
-# pytest -v  --disable-warnings .\test_views.py
+class Test_Cadastrar_Bolsista(TestCase):
 
-@pytest.mark.django_db
-def test_login(client):
-    url = reverse('login')
-    response = client.get(url)
-    assert response.status_code == 200
+    def setUp(self):
+        # usuario de teste
+        self.user = Usuarios.objects.create_user(
+            username='777',
+            password='1234',
+            email='teste777@gmail.com',
+            cpf='777',
+            carga_horaria=20,
+            tipo_bolsa='Bolsista Superior'
+        )
 
-@pytest.mark.django_db
-def test_bolsista_editar(client):
-    url = reverse('editar_bolsistas')
-    response = client.get(url)
-    assert response.status_code == 302
+        grupo_coordenadores = Group.objects.get(name='Coordenadores')
+        self.user.groups.add(grupo_coordenadores)
 
-@pytest.mark.django_db
-def test_bolsista_listar(client):
-    url = reverse('listar_bolsistas')
-    response = client.get(url)
-    assert response.status_code == 302
+    # autenticacao e permissao
+    def test_autenticacao_requerida(self):
+        response = self.client.get(reverse('cadastrar_bolsistas'))
+        self.assertEqual(response.status_code, 302)
 
-@pytest.mark.xfail
-@pytest.mark.django_db
-def test_bolsista_deletar(client):
-    url = reverse('deletar_bolsistas/9/')
-    response = client.get(url)
-    assert response.status_code == 200
+    def test_acesso_permissoes(self):
+        self.client.login(username='777', password='1234')
+        response = self.client.get(reverse('cadastrar_bolsistas'))
+        self.assertEqual(response.status_code, 200)
 
-@pytest.mark.xfail
-@pytest.mark.django_db
-def test_bolsista_detalhes(client):
-    url = reverse('detalhes_bolsistas/11/')
-    response = client.get(url)
-    assert response.status_code == 200
+    # testes para o formulario
+    def test_formulario_correto(self):
+        self.client.login(username='777', password='1234')
+        dados = {
+            'nome':'bolsistatestecase',
+            'cpf':'12341111',
+            'eixo':'Saúde',
+            'cidade_atuacao':'Ariquemes',
+            'carga_horaria':'20 horas semanais',
+            'tipo_bolsla':'Bolsista Superior',
+            }
+        response = self.client.post(reverse('cadastrar_bolsistas'), dados)
+        self.assertEqual(response.status_code, 302)
 
-
-@pytest.mark.django_db
-def testar_login_111(client):
-    response = client.post("/login/", {"username":"111", "password":"1234"})
-    assert response.status_code == 200
-    response = client.get("/sistema/")
-    assert response.status_code == 200
-
-@pytest.mark.django_db
-def testar_login_2():
-    cliente = Client()
-    response = cliente.post("/login/", {"username":"111", "password":"1234566"})
-    assert response.status_code == 200
-    response = cliente.get("/sistema/")
-    assert response.status_code == 200
+    # def test_formulario_invalido(self):
+    #     self.client.login(username='777', password='1234')
+    #     dados = {'username':'111', 'password':'1234'}
+    #     response = self.client.post(reverse('cadastrar_bolsistas'), dados)
+    #     self.assertEqual(response.status_code, 200)
+    
