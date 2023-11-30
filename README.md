@@ -47,8 +47,8 @@ O sistema é dividido em três módulos principais, além de oferecer gerenciame
 
 ## Imagens do Sistema
 <p align="rigth">
-  <img src="/assets/img1.jpeg" width="400" title="Historico">
-  <img src="/assets/img2.jpeg" width="350" title="Jobs">
-  <img src="/assets/img3.jpeg" width="400" title="Modal Job">
-  <img src="/assets/img3.jpeg" width="400" title="Modal Job">
+  <img src="/assets/img1.jpeg" width="400" title="Tela de login">
+  <img src="/assets/img2.jpeg" width="340" title="Cadastro de Eixo">
+  <img src="/assets/img3.jpeg" width="400" title="Relatório de pagamentos">
+  <img src="/assets/img3.jpeg" width="400" title="Listagem de Bolsistas">
 </p>
