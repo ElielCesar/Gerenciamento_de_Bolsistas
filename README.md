@@ -43,8 +43,12 @@ O sistema é dividido em três módulos principais, além de oferecer gerenciame
 1. Clone este repositório para sua máquina local usando `git clone <endereço-do-repositorio>`.
 2. Navegue até a pasta do projeto e instale as dependências usando `pip install -r requirements.txt`.
 3. Execute o servidor Django utilizando `python manage.py runserver`.
-4. Abra seu navegador e acesse `http://127.0.0.1:8000/` para visualizar o sistema.
+4. Abra seu navegador e acesse `http://127.0.0.1:8000/login` para visualizar o sistema.
 
-## 🤝 Contribuições
-
-Contribuições são sempre bem-vindas! Sinta-se à vontade para abrir Issues e Pull Requests.
+## Imagens do Sistema
+<p align="rigth">
+  <img src="/assets/img1.jpeg" width="300" title="Historico">
+  <img src="/assets/img2.jpeg" width="300" title="Jobs">
+  <img src="/assets/img3.jpeg" width="300" title="Modal Job">
+  <img src="/assets/img3.jpeg" width="300" title="Modal Job">
+</p>
